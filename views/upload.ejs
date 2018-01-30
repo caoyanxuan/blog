@@ -1,0 +1,22 @@
+<%- include header %>
+	<form method='post' action='/upload' enctype='multipart/form-data'>
+		<br>
+		<p class="pink">
+			上传头像（.jpg或.png）
+		</p>
+		<br>
+		<input id="upload-img" type="file" name='img' />
+		<br>
+		<br>
+		<br>
+		<input type="submit" />
+	</form>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#upload-img').click(function () {
+				console.log('123', 123);
+			})
+		})
+	
+	</script>
+<%- include footer %>

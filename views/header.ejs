@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>天天博客</title>
+<link rel="stylesheet" href="../public/stylesheets/style.css">
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- 背景图（因为要加透明度，所以选择DOM） -->
+<img class="body-img" src="../public/images/static/index-backgroud.jpg" alt="桌面背景">
+
+<!-- 用户信息 -->
+<div>
+    <% if (user) { %>
+        <div class="user-data">
+            <a href="/upload">
+                <img class="portrait" src="../<%= user.portrait %>" alt="用户头像">
+            </a>
+            <div>用户名：<%= user.name %></div>
+            <div>邮箱：<%= user.email %></div>
+        </div>
+    <% } %>
+</div>
+
+<!-- 提示信息 -->
+<div class="message" id="message">
+    <% if (success) { %>
+        <div class="success"><%= success %></div>
+    <% } %>
+    <% if (error) { %>
+        <div class="error"><%= error %> </div>
+    <% } %>
+</div>
+
+<!-- 标题 -->
+<h1 class="home-title" id="home-title">
+    天天博客
+</h1>
+
+<!-- 内容 -->
+<article>
+    <!-- 导航 -->
+    <nav id="navs" class="navs">
+        <a title="主页" href="/">主页</a>
+        <% if (user) { %>
+            <a title="发表" href="/post">发表</a>
+            <a title="账户" href="/upload">账户</a>
+            <a title="登出" href="/logout">登出</a>
+        <% } else { %>
+            <a title="登录" href="/login">登录</a>
+            <a title="注册" href="/reg">注册</a>
+        <% } %>
+    </nav>

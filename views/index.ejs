@@ -1,0 +1,28 @@
+<%- include header %>
+<ul class="post-lists" id="post-lists">
+<%
+    posts.forEach(function (post, index) {
+%>
+    <li>
+        <img class="portrait" src="../<%= post.portrait %>" alt="用户头像">
+        <h2>
+            <a href="javascript: void(0);" class="post-title purple" onclick="getPostId('<%= post._id %>')"><%= post.title %></a>
+        </h2>
+        <p class="info">
+              作者：<a href="#" class="blue"><%= post.name %></a> | 
+              时间：<%= post.time.toLocaleString() %>
+        </p>
+        <p>
+            <%- post.post %>
+        </p>
+    </li>
+<%
+    })
+%>
+</ul>
+<script type="text/javascript">
+    function getPostId(postId) {
+        console.log('postId', postId);
+    }
+</script>
+<%- include footer %>

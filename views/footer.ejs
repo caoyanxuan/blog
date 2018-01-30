@@ -1,0 +1,30 @@
+</article>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // 1.导航当前高亮
+        var navHref = [];
+        $('#navs a').each(function (i) {
+            // 将各个nav a标签中的href值添加到navHref数组中
+            navHref.push($('#navs a').eq(i).attr("href"));
+        });
+        var currentIndex = navHref.indexOf(window.location.pathname);
+        $('#navs a').eq(currentIndex).addClass("nav-action");
+
+        // 2.message定时
+        var t1 = window.setTimeout(function () {
+            $('#message').hide();
+            window.clearTimeout(t1);
+        }, 3000);
+
+        // title动画
+        // $('#home-title').animate({
+        //     opacity: '1',
+        //     fontSize: '40px'
+        // }, 1000);
+
+    })
+
+</script>
+</body>
+
+</html>
